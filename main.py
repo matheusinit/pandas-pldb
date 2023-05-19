@@ -22,4 +22,6 @@ print(descriptive_statistics.agg(
     ['mean', 'median', 'min', 'max', 'std', 'var']
 ))
 
+# fields: Origin community, wikipedia.created, rank, bookcount, githubLanguages.repo
+
 # print(min_numberOfUsers)
