@@ -6,4 +6,3 @@ descriptive_statistics = dataset.filter(
 print(descriptive_statistics.agg(
     ['mean', 'median', 'min', 'max', 'std', 'var']
 ))
-
