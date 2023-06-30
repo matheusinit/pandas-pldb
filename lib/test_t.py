@@ -5,13 +5,20 @@ from numpy.random import randn
 from numpy.random import normal
 from scipy.stats import ttest_1samp
 
-from process_data import raw_dataset
+from process_data import raw_dataset, dataset
 
-book_count = raw_dataset[:5].filter(['bookCount'])
+dataset_with_repos_more_than_fifty_thousand = raw_dataset.query(
+    "`githubLanguage.repos` > 30000")
 
-print(book_count)
+book_count = dataset_with_repos_more_than_fifty_thousand.filter(
+    ['bookCount'])[:30]
 
-t_stat, p_value = ttest_1samp(book_count, popmean=50)
+mean = raw_dataset.filter(['bookCount']).mean()
+
+t_stat, p_value = ttest_1samp(book_count, popmean=mean)
 
 print("t_stat", t_stat)
 print("p_value", p_value)
+
+# h0 = Linguagens de programação com mais de 30.000 repositórios no Github não tem contagem de livros acima da média
+# h1 = Linguagens de programação com mais de 30.000 repositórios no Github tem contagem de livros acima da média
