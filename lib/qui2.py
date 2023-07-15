@@ -4,8 +4,8 @@ import pandas as pd
 
 print(dataset)
 
-# H0 = Não há correlação entre o número de livros e o tipo de linguagem de programação?
-# H1 = Há correlação entre o número de livros e o tipo de linguagem de programação?
+# H0 = Não há correlação entre o número de livros e o tipo de linguagem de programação
+# H1 = Há correlação entre o número de livros e o tipo de linguagem de programação
 
 bookCountCol = dataset.loc[:, "bookCount"]
 typeCol = dataset.loc[:, "type"]
