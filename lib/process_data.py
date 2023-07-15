@@ -5,7 +5,6 @@ raw_dataset = pandas.read_csv(
 
 raw_dataset = raw_dataset.query('numberOfUsers > 0')
 raw_dataset = raw_dataset.query('numberOfJobs > 0')
-raw_dataset = raw_dataset.query("type == 'pl'")
 
 # Make categorical the column
 
@@ -21,10 +20,12 @@ raw_dataset = raw_dataset.filter([
     'title',
     'originCommunity',
     'bookCount',
-    'githubLanguage.repos'
+    'githubLanguage.repos',
+    'type'
 ]).dropna()
 
 dataset = raw_dataset.copy(deep=True)
+# dataset = dataset.query("type == 'pl'")
 
 dataset['title'] = makeNonNumericalColCategorical(dataset, "title")
 
